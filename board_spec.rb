@@ -15,7 +15,7 @@ describe ChessBoard do
     @ChessBoard.placePiece(["Ka2", "Bb3", "Pc4"])
     @ChessBoard.getPieceAtPosition("a2").should eql "K"
     @ChessBoard.getPieceAtPosition("b3").should eql "B"
-    @ChessBoard.getPieceAtPosition("c4").should eql "l"
+    @ChessBoard.getPieceAtPosition("c4").should eql "P"
   end
 
   it "should take a chess notation with a piece and place that on the board and return it" do
