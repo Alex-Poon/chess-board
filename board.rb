@@ -1,4 +1,13 @@
-class Board
+class ChessBoard
+  attr :board
+
+  def initialize()
+    @board = Array.new
+    for i in 0..7
+      @board[i] = ['', '', '', '', '', '', '', '']
+    end
+  end
+
   def notationToPosition(notation)
     positions = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
 
@@ -14,5 +23,23 @@ class Board
 
     horizontal += 1
     [horizontal, vertical.to_i]
+  end
+
+  def placePiece(piece)
+    if piece.kind_of? Array
+      piece.each do |p|
+        placePiece(p)
+      end
+
+      return
+    end
+
+    position = notationToPosition(piece)
+    @board[position[0]][position[1]] = piece[0]
+  end
+
+  def getPieceAtPosition(position)
+    position = notationToPosition(position)
+    return @board[position[0]][position[1]]
   end
 end
