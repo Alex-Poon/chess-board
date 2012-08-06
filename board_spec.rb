@@ -5,10 +5,6 @@ describe ChessBoard do
     @ChessBoard = ChessBoard.new
   end
 
-  def initializeStandardBoard
-    @ChessBoard.placePiece(["Rd3", "Pe7", "Qa5"])
-  end
-
   def initializeWhitePawnsBoard
     @ChessBoard.placePiece(["Pa3B", "Pb2W", "Pb3B", "Pc3B", "Pf2W", "Pg3W"])
   end
@@ -131,15 +127,3 @@ describe ChessBoard do
   end
 
 end
-
-=begin
-describe Piece do
-  before :each do
-    @Pawn = Pawn.new
-  end
-
-  it "should determine whether a move is valid" do 
-    Pawn.isValidMove("Pa2
-  end
-end
-=end

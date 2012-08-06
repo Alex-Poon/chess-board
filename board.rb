@@ -89,6 +89,7 @@ class ChessBoard
     return true
   end
 
+  # Translates the notion to the position
   def notationToPosition(notation)
     positions = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
 
@@ -104,6 +105,7 @@ class ChessBoard
     [horizontal, vertical.to_i]
   end
 
+  # Places the piece at the position, accepts an array of positions
   def placePiece(piece)
     if piece.kind_of? Array
       piece.each do |p|
@@ -117,6 +119,7 @@ class ChessBoard
     @board[position[0]][position[1]] = piece[0] + piece[3]
   end
 
+  # Returns piece with color at the notation in the format "PW"
   def getPieceAtPosition(position)
     position = notationToPosition(position)
     return @board[position[0]][position[1]]
