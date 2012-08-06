@@ -28,8 +28,10 @@ class ChessBoard
           return false
         # If we're capturing a piece
         elsif ((positionFrom[0]-1) == positionTo[0]) || ((positionFrom[0]+1) == positionTo[0])
+          # Make sure there's a piece there
           if (pieceTo.nil?)
            return false
+          # Make sure its an opposite color
           elsif pieceTo[1] != "B"
             return false
           else
@@ -49,8 +51,10 @@ class ChessBoard
           return false
         # If we're capturing a piece
         elsif ((positionFrom[0]-1) == positionTo[0]) || ((positionFrom[0]+1) == positionTo[0])
+          # Make sure there's a piece there
           if (pieceTo.nil?)
            return false
+          # Make sure its an opposite color
           elsif pieceTo[1] != "W"
             return false
           else
@@ -66,6 +70,23 @@ class ChessBoard
     else
       return false
     end
+  end
+
+  def move(from, to)
+    if !isValid(from, to)
+      return false
+    end
+
+    pieceFrom = getPieceAtPosition(from)
+    positionFrom = notationToPosition(from)
+
+    pieceTo = getPieceAtPosition(to)
+    positionTo = notationToPosition(to)
+
+    @board[positionTo[0]][positionTo[1]] = pieceFrom
+    @board[positionFrom[0]][positionFrom[1]] = nil
+
+    return true
   end
 
   def notationToPosition(notation)
