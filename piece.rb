@@ -1,0 +1,3 @@
+module Piece
+
+end
