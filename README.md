@@ -1,2 +1,2 @@
-fandor-chess
+chess
 ============
